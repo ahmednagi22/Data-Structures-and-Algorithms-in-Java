@@ -70,4 +70,44 @@ public class Search {
         return -1;
     }
 
+    /**
+     * Performs interpolation search on a sorted array to find the index of a target value.
+     * Interpolation search works by estimating the position of the target based on its value
+     * relative to the values at the boundaries of the current search range.
+     *
+     * @param array the sorted array to search in
+     * @param target the value to search for
+     * @return the index of the target if found, or -1 if not found
+
+     * Time Complexity:
+     * - average Case: O(log(log(n)))
+     * - worst Case:O(n)
+     */
+    public static int interpolationSearch(int[] array, int target) {
+        int left = 0;
+        int right = array.length - 1;
+
+        // Continue searching while the target is within the range
+        // and the search bounds are valid
+        while (left <= right && target >= array[left] && target <= array[right]) {
+            // Calculate the estimated position of the target
+            int pos = left + (target - array[left]) * (right - left) / (array[right] - array[left]);
+
+            // Check if the target is found
+            if (array[pos] == target) {
+                return pos;
+            }
+
+            // Narrow the search range based on the target's position
+            if (target > array[pos]) {
+                left = pos + 1; // Search in the right half
+            } else {
+                right = pos - 1; // Search in the left half
+            }
+        }
+
+        // Return -1 if the target is not found
+        return -1;
+    }
+
 }

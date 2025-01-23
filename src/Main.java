@@ -1,14 +1,13 @@
 import Algorithms.Search;
-import Algorithms.Sort;
-import DataStrucures.MyStack;
+import DataStructures.MyQueue;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
-        MyStack stack = new MyStack(3);
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        System.out.println(stack.peek());
-
+            int [] ar={1,3,5,9,10,18,20};
+        System.out.println(Search.interpolationSearch(ar,10));
     }
 }

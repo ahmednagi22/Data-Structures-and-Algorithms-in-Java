@@ -1,4 +1,4 @@
-package DataStrucures;
+package DataStructures;
 
 public class MyStack {
     private int[] stack;
